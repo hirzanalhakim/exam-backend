@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'unit'], function(){
     Route::get('/index',function(){
-		$getunit = DB::select('units')->get();
+		$getunit = DB::table('units')->get();
         return response()->json($getunit, 200);
     });
     Route::post('/create', 'ProductController@createUnit');
